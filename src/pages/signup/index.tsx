@@ -5,22 +5,34 @@ import Image from "next/image";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 
 export default function SignUp() {
+  const { signUp} = useContext(AuthContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const [loading, setLoading] = useState(false)
 
-  function handleSignUp (event : FormEvent){
+ async function handleSignUp (event : FormEvent){
     if (name=== '' || email === '' || password === ''){
       alert("Preencha todos os campos")
       return;
     }
     setLoading(true)
+
+    let data = {
+      name,
+      email,
+      password
+    }
+
+    await signUp(data)
+
+    setLoading(false)
 
   }
   
