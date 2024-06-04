@@ -1,36 +1,41 @@
-import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from "next";
-import { destroyCookie, parseCookies } from "nookies";
-import { AuthTokenError } from "../services/errors/AuthTokenError";
+import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import { parseCookies, destroyCookie } from 'nookies'
+import { AuthTokenError } from '../services/errors/AuthTokenError'
 
 
-export function canSSRAuth<P>(fn: GetServerSideProps<P>) {
+//funcao para paginas que só users logados podem ter acesso.
+export function canSSRAuth<P>(fn: GetServerSideProps<P>){
   return async (ctx: GetServerSidePropsContext): Promise<GetServerSidePropsResult<P>> => {
-    const cookies = parseCookies(ctx);
+    const cookies = parseCookies(ctx);    
 
-    const tooken = cookies['@nextauth.token'];
+    const token = cookies['@nextauth.token'];
 
-    if(!tooken) {
-      return {
+    if(!token){
+      return{
         redirect:{
           destination: '/',
-          permanent: false
+          permanent: false,
         }
       }
     }
 
     try{
-      return await fn(ctx)
-    } catch(err) {
-      if (err instanceof AuthTokenError) {
-        destroyCookie(ctx, '@nextauth.token' );
+      return await fn(ctx);
+    }catch(err){
+      if(err instanceof AuthTokenError){
+        destroyCookie(ctx, '@nextauth.token');
 
-        return {
+        return{
           redirect:{
-            destination:'/',
-            permanent:false
+            destination: '/',
+            permanent: false
           }
         }
+
       }
     }
+
+
   }
+
 }

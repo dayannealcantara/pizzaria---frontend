@@ -1,5 +1,6 @@
 import  Head  from "next/head";
 import { canSSRAuth } from "../../utils/canSSRAuth";
+import { Header } from "../../components/Header/indes";
 
 
 export default function Dashboard() {
@@ -7,7 +8,10 @@ export default function Dashboard() {
     <>
       <Head>
         <title>SujeitoPizza - Dashboard</title>
-      </Head>        
+      </Head>
+      <div>
+        <Header/>
+      </div>        
     </>
   )
 }
