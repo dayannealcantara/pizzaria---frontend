@@ -7,7 +7,7 @@ export default function Dashboard() {
   return (
     <>
       <Head>
-        <title>SujeitoPizza - Dashboard</title>
+        <title>Painel - Sujeito pizzaria</title>
       </Head>
       <div>
         <Header/>
