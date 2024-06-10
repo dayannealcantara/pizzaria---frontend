@@ -23,8 +23,8 @@ Este frontend é parte do sistema desenvolvido para a Sujeito Pizzaria, proporci
 
 ## Repositórios Relacionados
 
-* Backend: Link para o repositório do frontend
-* Mobile: Link para o repositório do backend
+* [Link para o repositório do mobile](https://github.com/dayannealcantara/pizzaria-mobile)
+* [Link para o repositório do backend](https://github.com/dayannealcantara/pizzaria---frontend)
 
 ## Local de Desenvolvimento
 
