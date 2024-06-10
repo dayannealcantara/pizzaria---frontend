@@ -21,6 +21,11 @@ Este frontend é parte do sistema desenvolvido para a Sujeito Pizzaria, proporci
 * Cadastro de Categorias e Produtos: Permite a adição de novas categorias e produtos ao cardápio da pizzaria.
 * Detalhes do Pedido: Fornece informações detalhadas sobre cada pedido, incluindo itens, status e cliente.
 
+## Repositórios Relacionados
+
+* Backend: Link para o repositório do frontend
+* Mobile: Link para o repositório do backend
+
 ## Local de Desenvolvimento
 
 ```bash
